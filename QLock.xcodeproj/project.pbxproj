@@ -12,7 +12,6 @@
 		038330F71B6564C50015B15F /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038330F61B6564C50015B15F /* DefaultsManager.swift */; };
 		03A485271B644187008A2D6A /* QLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A485261B644187008A2D6A /* QLockView.swift */; };
 		03F9545E1B695E0A00E47ED7 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F9545D1B695E0A00E47ED7 /* thumbnail.png */; };
-		87367EF0242E3F8800146BDE /* QLock.saver in Resources */ = {isa = PBXBuildFile; fileRef = 87367EEF242E3F8800146BDE /* QLock.saver */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +22,6 @@
 		03A4851C1B644145008A2D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03A485261B644187008A2D6A /* QLockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLockView.swift; sourceTree = "<group>"; };
 		03F9545D1B695E0A00E47ED7 /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
-		87367EEF242E3F8800146BDE /* QLock.saver */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = QLock.saver; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,6 @@
 		03A4851A1B644145008A2D6A /* QLock */ = {
 			isa = PBXGroup;
 			children = (
-				87367EEA242E3EE000146BDE /* Build */,
 				03A485261B644187008A2D6A /* QLockView.swift */,
 				034D858F1B64F0AD00D2EF6B /* ConfigureSheetController.swift */,
 				034D858B1B64DF4D00D2EF6B /* ConfigureSheet.xib */,
@@ -73,14 +70,6 @@
 				03A4851C1B644145008A2D6A /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		87367EEA242E3EE000146BDE /* Build */ = {
-			isa = PBXGroup;
-			children = (
-				87367EEF242E3F8800146BDE /* QLock.saver */,
-			);
-			name = Build;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +143,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87367EF0242E3F8800146BDE /* QLock.saver in Resources */,
 				034D858C1B64DF4D00D2EF6B /* ConfigureSheet.xib in Resources */,
 				03F9545E1B695E0A00E47ED7 /* thumbnail.png in Resources */,
 			);
