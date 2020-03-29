@@ -4,4 +4,4 @@ Small screensaver for OS X written entirely in Swift. Includes configuration she
 
 [screenshot]
 
-[screenshot]: https://github.com/tbrek/qlock/blob/master/images/preview.png?raw=true "Screenshot"
+[screenshot]: https://raw.githubusercontent.com/tbrek/qlock/master/images/preview.png "Screenshot"
