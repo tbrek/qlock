@@ -1,5 +1,5 @@
 /*
- *  Copyright 2020 Tomasz Brek
+ *  Copyright 2021 Tomasz Brek
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
  *  not use these files except in compliance with the License. You may obtain
@@ -225,13 +225,12 @@ public class QLockView : ScreenSaverView {
     private func drawRow(row: Int, string: String) {
         for column in 0...10 {
             textRect = NSMakeRect(CGFloat(column+1)*textRectWidth+((width-height)/2)+textRectWidth/2, height-(CGFloat(row+1)*textRectHeight), textRectWidth, textRectHeight)
-            if row == 10 {
-                font = NSFont(name: "Monaco", size: height/22)!
-            } else {
-                font = NSFont(name: "Gill Sans", size: height/12)!
-            }
+            
+         
+            font = row < 10 ? NSFont(name: "Gill Sans", size: height/12)! : NSFont(name: "Monaco", size: height/22)!
             
             let index = string.index(string.startIndex, offsetBy: column)
+            
             if String(clockCover[row][index]) == "0" {
                 tempTextColor = textColor?.withAlphaComponent(0.07)
             } else {
