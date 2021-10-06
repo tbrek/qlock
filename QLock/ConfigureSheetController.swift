@@ -25,7 +25,6 @@ class ConfigureSheetController : NSObject {
     @IBOutlet var canvasColorWell: NSColorWell?
     @IBOutlet var fadedTextColorWell: NSColorWell?
     
-  
     override init() {
         super.init()
         let myBundle = Bundle(for: ConfigureSheetController.self)
