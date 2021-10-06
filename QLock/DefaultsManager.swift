@@ -53,7 +53,6 @@ class DefaultsManager {
         }
     }
     
-
     func setColor(_ color: NSColor, key: String) {
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: color), forKey: key)
         defaults.synchronize()
