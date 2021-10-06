@@ -43,7 +43,16 @@ class DefaultsManager {
             return getColor("TextColor") ?? NSColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         }
     }
-
+    
+    var fadedTextColor: NSColor {
+        set(newColor) {
+            setColor(newColor, key: "FadedTextColor")
+        }
+        get {
+            return getColor("FadedTextColor") ?? NSColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+        }
+    }
+    
     func setColor(_ color: NSColor, key: String) {
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: color), forKey: key)
         defaults.synchronize()

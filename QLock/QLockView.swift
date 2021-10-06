@@ -60,6 +60,7 @@ public class QLockView : ScreenSaverView {
     
     var canvasColor: NSColor?
     var textColor: NSColor?
+    var fadedTextColor: NSColor?
     var tempTextColor: NSColor?
     
     // MARK: - Initialization
@@ -106,6 +107,7 @@ public class QLockView : ScreenSaverView {
     func cacheColors() {
         canvasColor = defaultsManager.canvasColor
         textColor = defaultsManager.textColor
+        fadedTextColor = defaultsManager.fadedTextColor
     }
     
     func drawBackground() {
@@ -236,7 +238,7 @@ public class QLockView : ScreenSaverView {
             let index = string.index(string.startIndex, offsetBy: column)
             
             if String(clockCover[row][index]) == "0" {
-                tempTextColor = textColor?.withAlphaComponent(0.07)
+                tempTextColor = fadedTextColor?.withAlphaComponent(1)
             } else {
                 tempTextColor = textColor?.withAlphaComponent(1)
             }
