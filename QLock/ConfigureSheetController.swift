@@ -23,6 +23,8 @@ class ConfigureSheetController : NSObject {
     @IBOutlet var window: NSWindow?
     @IBOutlet var textColorWell: NSColorWell?
     @IBOutlet var canvasColorWell: NSColorWell?
+    @IBOutlet var fadedTextColorWell: NSColorWell?
+    
   
     override init() {
         super.init()
@@ -30,11 +32,13 @@ class ConfigureSheetController : NSObject {
         myBundle.loadNibNamed("ConfigureSheet", owner: self, topLevelObjects: nil)
         canvasColorWell!.color = defaultsManager.canvasColor
         textColorWell!.color = defaultsManager.textColor
+        fadedTextColorWell!.color = defaultsManager.fadedTextColor
     }
 
     @IBAction func updateDefaults(_ sender: AnyObject) {
         defaultsManager.canvasColor = canvasColorWell!.color
         defaultsManager.textColor = textColorWell!.color
+        defaultsManager.fadedTextColor = fadedTextColorWell!.color
     }
    
     @IBAction func closeConfigureSheet(_ sender: AnyObject) {
