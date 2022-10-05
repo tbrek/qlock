@@ -1,5 +1,5 @@
 /*
- *  Copyright 2021 Tomasz Brek
+ *  Copyright 2022 Tomasz Brek
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
  *  not use these files except in compliance with the License. You may obtain
@@ -62,6 +62,7 @@ public class QLockView : ScreenSaverView {
     var textColor: NSColor?
     var fadedTextColor: NSColor?
     var tempTextColor: NSColor?
+    var fontName: String?
     
     // MARK: - Initialization
     override init?(frame: NSRect, isPreview: Bool) {
@@ -108,6 +109,7 @@ public class QLockView : ScreenSaverView {
         canvasColor = defaultsManager.canvasColor
         textColor = defaultsManager.textColor
         fadedTextColor = defaultsManager.fadedTextColor
+        fontName = defaultsManager.fontName
     }
     
     func drawBackground() {
@@ -233,7 +235,7 @@ public class QLockView : ScreenSaverView {
             textRect = NSMakeRect(CGFloat(column+1)*textRectWidth+((width-height)/2)+textRectWidth/2, height-(CGFloat(row+1)*textRectHeight), textRectWidth, textRectHeight)
             
          
-            font = row < 10 ? NSFont(name: "Gill Sans", size: height/12)! : NSFont(name: "Monaco", size: height/22)!
+            font = row < 10 ? NSFont(name: fontName!, size: height/12)! : NSFont(name: "Monaco", size: height/22)!
             
             let index = string.index(string.startIndex, offsetBy: column)
             

@@ -1,5 +1,5 @@
 /*
- *  Copyright 2020 Tomasz Brek
+ *  Copyright 2022 Tomasz Brek
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
  *  not use these files except in compliance with the License. You may obtain
@@ -52,6 +52,28 @@ class DefaultsManager {
             return getColor("FadedTextColor") ?? NSColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         }
     }
+    
+    var fontName: String {
+        set(newFont) {
+            setFont(newFont, key: "FontName")
+        }
+        get {
+            return getFont("FontName") ?? "Futura"
+        }
+    }
+    
+    func setFont(_ font: String, key: String) {
+        defaults.set(NSKeyedArchiver.archivedData(withRootObject: font), forKey: key)
+        defaults.synchronize()
+    }
+    
+    func getFont(_ key: String) -> String? {
+        if let canvasColorData = defaults.object(forKey: key) as? Data {
+            return NSKeyedUnarchiver.unarchiveObject(with: canvasColorData) as? String
+        }
+        return nil;
+    }
+    
     
     func setColor(_ color: NSColor, key: String) {
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: color), forKey: key)
