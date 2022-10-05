@@ -1,5 +1,5 @@
 /*
- *  Copyright 2021 Tomasz Brek
+ *  Copyright 2022 Tomasz Brek
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
  *  not use these files except in compliance with the License. You may obtain
@@ -52,7 +52,6 @@ let textRectHeight = height/11
 let textRectWidth = textRectHeight*0.8
 var textRect: NSRect = NSMakeRect(width/2, height/2, 125, 60)
 
-
 public class QLockView : ScreenSaverView {
     
     var defaultsManager: DefaultsManager = DefaultsManager()
@@ -63,7 +62,6 @@ public class QLockView : ScreenSaverView {
     var fadedTextColor: NSColor?
     var tempTextColor: NSColor?
     
-    // MARK: - Initialization
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
         animationTimeInterval = 1.0 / 60.0
@@ -91,7 +89,6 @@ public class QLockView : ScreenSaverView {
         super.stopAnimation()
     }
     
-    // MARK: - Lifecycle
     override public func draw(_ rect: NSRect) {
         super.draw(rect)
         cacheColors()
@@ -102,7 +99,6 @@ public class QLockView : ScreenSaverView {
     override public func animateOneFrame() {
         needsDisplay = true
     }
-    
     
     func cacheColors() {
         canvasColor = defaultsManager.canvasColor
