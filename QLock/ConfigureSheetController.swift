@@ -24,6 +24,7 @@ class ConfigureSheetController : NSObject {
     @IBOutlet var textColorWell: NSColorWell?
     @IBOutlet var canvasColorWell: NSColorWell?
     @IBOutlet var fadedTextColorWell: NSColorWell?
+    @IBOutlet weak var fontDropdown: NSPopUpButton!
     
     override init() {
         super.init()
@@ -32,12 +33,14 @@ class ConfigureSheetController : NSObject {
         canvasColorWell!.color = defaultsManager.canvasColor
         textColorWell!.color = defaultsManager.textColor
         fadedTextColorWell!.color = defaultsManager.fadedTextColor
+        fontDropdown.selectItem(withTitle: defaultsManager.fontName)
     }
 
     @IBAction func updateDefaults(_ sender: AnyObject) {
         defaultsManager.canvasColor = canvasColorWell!.color
         defaultsManager.textColor = textColorWell!.color
         defaultsManager.fadedTextColor = fadedTextColorWell!.color
+        defaultsManager.fontName = fontDropdown.selectedItem!.title
     }
    
     @IBAction func closeConfigureSheet(_ sender: AnyObject) {

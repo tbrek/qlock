@@ -53,6 +53,28 @@ class DefaultsManager {
         }
     }
     
+    var fontName: String {
+        set(newFont) {
+            setFont(newFont, key: "FontName")
+        }
+        get {
+            return getFont("FontName") ?? "Futura"
+        }
+    }
+    
+    func setFont(_ font: String, key: String) {
+        defaults.set(NSKeyedArchiver.archivedData(withRootObject: font), forKey: key)
+        defaults.synchronize()
+    }
+    
+    func getFont(_ key: String) -> String? {
+        if let canvasColorData = defaults.object(forKey: key) as? Data {
+            return NSKeyedUnarchiver.unarchiveObject(with: canvasColorData) as? String
+        }
+        return nil;
+    }
+    
+    
     func setColor(_ color: NSColor, key: String) {
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: color), forKey: key)
         defaults.synchronize()
