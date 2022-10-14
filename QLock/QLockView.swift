@@ -175,18 +175,7 @@ public class QLockView : ScreenSaverView {
             clockCover[0] = "11011000000"
         }
         
-        switch minutes {
-        case 1,6,11,16,21,26,31,36,41,46,51,56:
-            clockCover[10] = "00100000000"
-        case 2,7,12,17,22,27,32,37,42,47,52,57:
-            clockCover[10] = "00101000000"
-        case 3,8,13,18,23,28,33,38,43,48,53,58:
-            clockCover[10] = "00101010000"
-        case 4,9,14,19,24,29,34,39,44,49,54,59:
-            clockCover[10] = "00101010100"
-        default:
-            clockCover[10] = "00000000000"
-        }
+        clockCover[10] = clockCover10(minutes: minutes)
         
         switch tempHour {
         case 1,13:
@@ -223,6 +212,21 @@ public class QLockView : ScreenSaverView {
         
         for row in 0...10 {
             drawRow(row: row, string: clockDial[row])
+        }
+    }
+    
+    func clockCover10(minutes: Int) -> String {
+        switch minutes % 5 {
+        case 1:
+            return "00100000000"
+        case 2:
+            return "00101000000"
+        case 3:
+            return "00101010000"
+        case 4:
+            return "00101010100"
+        default:
+            return "00000000000"
         }
     }
     
