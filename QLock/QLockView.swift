@@ -125,49 +125,49 @@ public class QLockView : ScreenSaverView {
         }
         
         switch minutes {
-        case 0,1,2,3,4:
+        case 0..<5:
             clockCover[9] = "00000111111"
             tempHour = hour
-        case 5,6,7,8,9:
+        case 5..<10:
             clockCover[2] = "00000011110"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 10,11,12,13,14:
+        case 10..<15:
             clockCover[3] = "00000111000"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 15,16,17,18,19:
+        case 15..<20:
             clockCover[1] = "00111111100"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 20,21,22,23,24:
+        case 20..<25:
             clockCover[2] = "11111100000"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 25,26,27,28,29:
+        case 25..<30:
             clockCover[2] = "11111111110"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 30,31,32,33,34:
+        case 30..<35:
             clockCover[3] = "11110000000"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 35,36,37,38,39:
+        case 35..<40:
             clockCover[2] = "11111111110"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
-        case 40,41,42,43,44:
+        case 40..<45:
             clockCover[2] = "11111100000"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
-        case 45,46,47,48,49:
+        case 45..<50:
             clockCover[1] = "00111111100"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
-        case 50,51,52,53,54:
+        case 50..<55:
             clockCover[3] = "00000111011"
             tempHour = hour + 1
-        case 55,56,57,58,59:
+        case 55..<60:
             clockCover[2] = "00000011110"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
@@ -260,4 +260,3 @@ public class QLockView : ScreenSaverView {
     
 }
     
-
