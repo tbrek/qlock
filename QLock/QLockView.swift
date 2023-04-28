@@ -202,7 +202,7 @@ public class QLockView : ScreenSaverView {
             }
         case 10,22:
             clockCover[9] = "11100000000"
-        case 11:
+        case 11,23:
             clockCover[7] = "00000111111"
         case 12,0:
             clockCover[8] = "00000111111"
