@@ -125,58 +125,56 @@ public class QLockView : ScreenSaverView {
         }
         
         switch minutes {
-        case 0,1,2,3,4:
+        case 0..<5:
             clockCover[9] = "00000111111"
             tempHour = hour
-        case 5,6,7,8,9:
+        case 5..<10:
             clockCover[2] = "00000011110"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 10,11,12,13,14:
+        case 10..<15:
             clockCover[3] = "00000111000"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 15,16,17,18,19:
+        case 15..<20:
             clockCover[1] = "00111111100"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 20,21,22,23,24:
+        case 20..<25:
             clockCover[2] = "11111100000"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 25,26,27,28,29:
+        case 25..<30:
             clockCover[2] = "11111111110"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 30,31,32,33,34:
+        case 30..<35:
             clockCover[3] = "11110000000"
             clockCover[4] = "11110000000"
             tempHour = hour
-        case 35,36,37,38,39:
+        case 35..<40:
             clockCover[2] = "11111111110"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
-        case 40,41,42,43,44:
+        case 40..<45:
             clockCover[2] = "11111100000"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
-        case 45,46,47,48,49:
+        case 45..<50:
             clockCover[1] = "00111111100"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
-        case 50,51,52,53,54:
+        case 50..<55:
             clockCover[3] = "00000111011"
             tempHour = hour + 1
-        case 55,56,57,58,59:
+        case 55..<60:
             clockCover[2] = "00000011110"
             clockCover[3] = "00000000011"
             tempHour = hour + 1
         default:
             clockCover[0] = "11011000000"
-        }
-        
+        }   
         clockCover[10] = clockCover10(minutes: minutes)
-        
         switch tempHour {
         case 1,13:
             clockCover[5] = "11100000000"
@@ -208,8 +206,7 @@ public class QLockView : ScreenSaverView {
             clockCover[8] = "00000111111"
         default:
             clockCover[0] = "11011000000"
-        }
-        
+        }    
         for row in 0...10 {
             drawRow(row: row, string: clockDial[row])
         }
@@ -233,31 +230,24 @@ public class QLockView : ScreenSaverView {
     private func drawRow(row: Int, string: String) {
         for column in 0...10 {
             textRect = NSMakeRect(CGFloat(column+1)*textRectWidth+((width-height)/2)+textRectWidth/2, height-(CGFloat(row+1)*textRectHeight), textRectWidth, textRectHeight)
-            
-         
             font = row < 10 ? NSFont(name: fontName!, size: height/12)! : NSFont(name: "Monaco", size: height/22)!
-            
             let index = string.index(string.startIndex, offsetBy: column)
-            
             if String(clockCover[row][index]) == "0" {
                 tempTextColor = fadedTextColor?.withAlphaComponent(1)
             } else {
                 tempTextColor = textColor?.withAlphaComponent(1)
-            }
-            
+            }      
             let textStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
             textStyle.alignment = NSTextAlignment.center
             let textFontAttributes = [
                  NSAttributedString.Key.font: font,
                  NSAttributedString.Key.backgroundColor: canvasColor,
                  NSAttributedString.Key.foregroundColor: tempTextColor,
-                 NSAttributedString.Key.paragraphStyle: textStyle]
-            
+                 NSAttributedString.Key.paragraphStyle: textStyle]          
             text = String(string[index])
             text.draw(in: NSOffsetRect(textRect, 0, 0), withAttributes: textFontAttributes as [NSAttributedString.Key : Any])
         }
-    }
-    
+    } 
 }
     
 
